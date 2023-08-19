@@ -1,18 +1,21 @@
 package in.akashpatel.sms.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
-import in.akashpatel.sms.service.StudentService;
 import in.akashpatel.sms.entity.Student;
+import in.akashpatel.sms.service.StudentService;
 
 @Controller
 public class StudentController {
 
+	@Autowired
 	private StudentService studentService;
 
 	public StudentController(StudentService studentService) {
@@ -38,8 +41,9 @@ public class StudentController {
 	}
 
 	@PostMapping("/students")
-	public String saveStudent(@ModelAttribute("student") Student student) {
-		studentService.saveStudent(student);
+	public String saveStudent(@ModelAttribute("student") Student student, @RequestBody Student student1) {
+		System.out.println(student);
+		studentService.saveStudent(student1);
 		return "redirect:/students";
 	}
 

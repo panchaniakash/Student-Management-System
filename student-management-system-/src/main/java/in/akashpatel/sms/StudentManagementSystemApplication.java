@@ -14,21 +14,14 @@ public class StudentManagementSystemApplication implements CommandLineRunner {
 	public static void main(String[] args) {
 		SpringApplication.run(StudentManagementSystemApplication.class, args);
 	}
-	
-	@Autowired
-	private StudentRepository studentRepository;
+
+//	@Autowired
+//	private StudentRepository studentRepository;
 
 	@Override
 	public void run(String... args) throws Exception {
+		// TODO Auto-generated method stub
 
-		Student student1 = new Student("Akash", "Patel", "akash61p@gmail.com");
-		studentRepository.save(student1);
-		
-		Student student2 = new Student("Kano", "Hirapara", "kano@gmail.com");
-		studentRepository.save(student2);
-		
-		Student student3 = new Student("Meet", "Patel", "meet@gmail.com");
-		studentRepository.save(student3);
 	}
 
 }
